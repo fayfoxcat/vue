@@ -1,24 +1,24 @@
 # vue
 
-## Project setup
+## 项目设置
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### 编译和热加载用于开发
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### 编译和最小化产品
 ```
 yarn build
 ```
 
-### Lints and fixes files
+### 检查和修复文件
 ```
 yarn lint
 ```
 
-### Customize configuration
+### 自定义配置
 See [Configuration Reference](https://cli.vuejs.org/config/).
