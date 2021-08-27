@@ -1277,8 +1277,8 @@
     "webpack" "^4.0.0"
 
 "@vue/cli-plugin-eslint@~4.5.0":
-  "integrity" "sha1-i68i0NltdnIMdQZka5b09iwFvfo="
-  "resolved" "https://registry.nlark.com/@vue/cli-plugin-eslint/download/@vue/cli-plugin-eslint-4.5.13.tgz?cache=0&sync_timestamp=1628579325292&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40vue%2Fcli-plugin-eslint%2Fdownload%2F%40vue%2Fcli-plugin-eslint-4.5.13.tgz"
+  "integrity" "sha512-yc2uXX6aBiy3vEf5TwaueaDqQbdIXIhk0x0KzEtpPo23jBdLkpOSoU5NCgE06g/ZiGAcettpmBSv73Hfp4wHEw=="
+  "resolved" "https://registry.npmjs.org/@vue/cli-plugin-eslint/-/cli-plugin-eslint-4.5.13.tgz"
   "version" "4.5.13"
   dependencies:
     "@vue/cli-shared-utils" "^4.5.13"
@@ -1301,8 +1301,8 @@
   "version" "4.5.13"
 
 "@vue/cli-service@^3.0.0 || ^4.0.0-0", "@vue/cli-service@~4.5.0":
-  "integrity" "sha1-oJ5oSoAWhLbiTlQUrTBlCXDuye0="
-  "resolved" "https://registry.nlark.com/@vue/cli-service/download/@vue/cli-service-4.5.13.tgz?cache=0&sync_timestamp=1628579326809&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40vue%2Fcli-service%2Fdownload%2F%40vue%2Fcli-service-4.5.13.tgz"
+  "integrity" "sha512-CKAZN4iokMMsaUyJRU22oUAz3oS/X9sVBSKAF2/shFBV5xh3jqAlKl8OXZYz4cXGFLA6djNuYrniuLAo7Ku97A=="
+  "resolved" "https://registry.npmjs.org/@vue/cli-service/-/cli-service-4.5.13.tgz"
   "version" "4.5.13"
   dependencies:
     "@intervolga/optimize-cssnano-plugin" "^1.0.5"
@@ -2448,8 +2448,8 @@
   "version" "8.0.3"
 
 "chokidar@^2.1.8":
-  "integrity" "sha1-gEs6e2qZNYw8XGHnHYco8EHP+Rc="
-  "resolved" "https://registry.nlark.com/chokidar/download/chokidar-2.1.8.tgz"
+  "integrity" "sha512-ZmZUazfOzf0Nve7duiCKD23PFSCs4JPoYyccjUFF3aQkQadqBhfzhjkwBH2mNOG9cTBwhamM37EIsIkZw3nRgg=="
+  "resolved" "https://registry.npmjs.org/chokidar/-/chokidar-2.1.8.tgz"
   "version" "2.1.8"
   dependencies:
     "anymatch" "^2.0.0"
@@ -2803,8 +2803,8 @@
   "version" "0.1.1"
 
 "copy-webpack-plugin@^5.1.1":
-  "integrity" "sha1-ioieHcr6bJHGzUvhrRWPHTgjuuI="
-  "resolved" "https://registry.nlark.com/copy-webpack-plugin/download/copy-webpack-plugin-5.1.2.tgz?cache=0&sync_timestamp=1624628458516&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcopy-webpack-plugin%2Fdownload%2Fcopy-webpack-plugin-5.1.2.tgz"
+  "integrity" "sha512-Uh7crJAco3AjBvgAy9Z75CjK8IG+gxaErro71THQ+vv/bl4HaQcpkexAY8KVW/T6D2W2IRr+couF/knIRkZMIQ=="
+  "resolved" "https://registry.npmjs.org/copy-webpack-plugin/-/copy-webpack-plugin-5.1.2.tgz"
   "version" "5.1.2"
   dependencies:
     "cacache" "^12.0.3"
@@ -3914,8 +3914,8 @@
   "version" "3.1.3"
 
 "fast-glob@^2.2.6":
-  "integrity" "sha1-aVOFfDr6R1//ku5gFdUtpwpM050="
-  "resolved" "https://registry.nlark.com/fast-glob/download/fast-glob-2.2.7.tgz"
+  "integrity" "sha512-g1KuQwHOZAmOZMuBtHdxDtju+T2RT8jgCC9aANsbpdiDDTSnjgfuVsIBNKbUeJI3oKMRExcfNDtJl4OhbffMsw=="
+  "resolved" "https://registry.npmjs.org/fast-glob/-/fast-glob-2.2.7.tgz"
   "version" "2.2.7"
   dependencies:
     "@mrmlnc/readdir-enhanced" "^2.2.1"
@@ -4289,8 +4289,8 @@
     "slash" "^1.0.0"
 
 "globby@^9.2.0":
-  "integrity" "sha1-/QKacGxwPSm90XD0tts6P3p8tj0="
-  "resolved" "https://registry.nlark.com/globby/download/globby-9.2.0.tgz?cache=0&sync_timestamp=1629801109090&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fglobby%2Fdownload%2Fglobby-9.2.0.tgz"
+  "integrity" "sha512-ollPHROa5mcxDEkwg6bPt3QbEf4pDQSNtd6JPL1YvOvAo/7/0VAm9TccUeoTmarjPw4pfUthSCqcyfNB1I3ZSg=="
+  "resolved" "https://registry.npmjs.org/globby/-/globby-9.2.0.tgz"
   "version" "9.2.0"
   dependencies:
     "@types/glob" "^7.1.1"
@@ -8491,15 +8491,15 @@
     "@vue/shared" "3.2.6"
 
 "watchpack-chokidar2@^2.0.1":
-  "integrity" "sha1-OFAAcu5uzmbzdpk2lQ6hdxvhyVc="
-  "resolved" "https://registry.nlark.com/watchpack-chokidar2/download/watchpack-chokidar2-2.0.1.tgz"
+  "integrity" "sha512-nCFfBIPKr5Sh61s4LPpy1Wtfi0HE8isJ3d2Yb5/Ppw2P2B/3eVSEBjKfN0fmHJSK14+31KwMKmcrzs2GM4P0Ww=="
+  "resolved" "https://registry.npmjs.org/watchpack-chokidar2/-/watchpack-chokidar2-2.0.1.tgz"
   "version" "2.0.1"
   dependencies:
     "chokidar" "^2.1.8"
 
 "watchpack@^1.7.4":
-  "integrity" "sha1-EmfmxV4Lm1vkTCAjrtVDeiwmxFM="
-  "resolved" "https://registry.nlark.com/watchpack/download/watchpack-1.7.5.tgz?cache=0&sync_timestamp=1621438246743&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fwatchpack%2Fdownload%2Fwatchpack-1.7.5.tgz"
+  "integrity" "sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ=="
+  "resolved" "https://registry.npmjs.org/watchpack/-/watchpack-1.7.5.tgz"
   "version" "1.7.5"
   dependencies:
     "graceful-fs" "^4.1.2"
@@ -8561,8 +8561,8 @@
     "webpack-log" "^2.0.0"
 
 "webpack-dev-server@^3.11.0":
-  "integrity" "sha1-aV687Xakkp8NXef9c/r+GF/jNwg="
-  "resolved" "https://registry.nlark.com/webpack-dev-server/download/webpack-dev-server-3.11.2.tgz"
+  "integrity" "sha512-A80BkuHRQfCiNtGBS1EMf2ChTUs0x+B3wGDFmOeT4rmJOHhHTCH2naNxIHhmkr0/UillP4U3yeIyv1pNp+QDLQ=="
+  "resolved" "https://registry.npmjs.org/webpack-dev-server/-/webpack-dev-server-3.11.2.tgz"
   "version" "3.11.2"
   dependencies:
     "ansi-html" "0.0.7"
