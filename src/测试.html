@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>fox</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="counter">
+        <div>Counter: {{ counter }}</div>
+        <span :title="title">
+            鼠标悬停几秒钟查看此处动态绑定的提示信息！
+        </span>
+        <div>
+            <p>{{message}}</p>
+            <button @click="reverseMessage">反转字符</button>
+        </div>
+        <div>
+            <p>同步：{{input}}</p>
+            <input v-model="input" />
+        </div>
+        <div>
+            <p v-if="seen">显示/隐藏</p>
+            <button @click="Switching">切换状态</button>
+        </div>
+        <div>
+            <ol>
+                <li v-for="todo in todos">
+                    {{todo.text}}
+                </li>
+            </ol>
+        </div>
+    </div>
+</body>
+<script>
+    const Counter = {
+        data() {
+            return {
+                counter: 0,
+                title: "time:" + new Date().toLocaleTimeString(),
+                message: '言念君子，温其如玉',
+                input: '',
+                seen: true,
+                todos: [
+                    { text: 'Learn JavaScript' },
+                    { text: 'Learn Vue' },
+                    { text: 'Build something awesome' }
+                ]
+            }
+        },
+        mounted() {
+            setInterval(() => {
+                this.counter++
+            }, 1000)
+        },
+        methods: {
+            reverseMessage() {
+                this.message = this.message.split('').reverse().join('')
+            },
+            Switching() {
+                this.seen = !this.seen
+            }
+        }
+    }
+    Vue.createApp(Counter).mount('#counter')
+</script>
+
+</html>
