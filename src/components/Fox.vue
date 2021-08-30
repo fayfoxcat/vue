@@ -8,11 +8,23 @@
 </template>
 
 <script>
-import { createApp } from "vue";
+import { createApp, defineComponent } from "vue";
 createApp(Counter).mount("#fox");
-export default {
+export default defineComponen({
+  // 组件名称
   name: "Fox",
-};
+  // 来自父组件的传值
+  props: {
+
+  },
+  // 定义子组件
+  components: {
+
+  },
+  setup(props, ctx) {
+    
+  },
+});
 
 const Counter = {
   data() {
