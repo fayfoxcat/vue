@@ -20,11 +20,12 @@
         </div>
         <div>
             <p>同步：{{input}}</p>
+            <p v-once>不同步：{{input}}</p>
             <input v-model="input" />
         </div>
         <div>
             <p v-if="seen">显示/隐藏</p>
-            <button @click="Switching">切换状态</button>
+            <button @click='Switching'>切换状态</button>
         </div>
         <div>
             <ol>
@@ -33,6 +34,10 @@
                 </li>
             </ol>
         </div>
+
+        <span>文本：</span><span>{{shtml}}</span>
+        <br>
+        <span>渲染：</span><span v-html="input"></span>
     </div>
 </body>
 <script>
@@ -42,13 +47,15 @@
                 counter: 0,
                 title: "time:" + new Date().toLocaleTimeString(),
                 message: '言念君子，温其如玉',
-                input: '',
+                input: '默认文字',
                 seen: true,
                 todos: [
                     { text: 'Learn JavaScript' },
                     { text: 'Learn Vue' },
                     { text: 'Build something awesome' }
-                ]
+                ],
+                shtml:'<span style="color: red">This should be red.</span>',
+
             }
         },
         mounted() {
