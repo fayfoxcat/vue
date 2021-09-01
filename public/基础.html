@@ -37,7 +37,8 @@
 
         <span>文本：</span><span>{{shtml}}</span>
         <br>
-        <span>渲染：</span><span v-html="input"></span>
+        <span>渲染：</span><span v-html="shtml"></span>
+
     </div>
 </body>
 <script>
@@ -54,8 +55,7 @@
                     { text: 'Learn Vue' },
                     { text: 'Build something awesome' }
                 ],
-                shtml:'<span style="color: red">This should be red.</span>',
-
+                shtml:'<span style="color: #059e83">This should be red.</span>',
             }
         },
         mounted() {
@@ -69,10 +69,15 @@
             },
             Switching() {
                 this.seen = !this.seen
+            },
+            print() {
+                console.log(this.counter)
             }
         }
     }
-    Vue.createApp(Counter).mount('#counter')
+    const vm= Vue.createApp(Counter).mount('#counter')
+    console.log(vm.message);
+    vm.print()
 </script>
 
 </html>
