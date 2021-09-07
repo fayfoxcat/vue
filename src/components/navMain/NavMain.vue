@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div id="main">
     <input placeholder="添加代办事项" v-model="value" @keydown="add_task" />
-    <div v-if="(item, index) in tasks" :key="index">
+    <div v-for="(item, index) in tasks" :key="index">
       <div class="item">
         <input type="checkbox" v-model="item.complete" />
         <span>{{ item.title }}</span>
@@ -46,7 +46,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
- .item {
-   height: 35px;
- }
+#main{
+  margin: 50px auto 0 auto;
+  padding: 10px;
+  width: 20%;
+  background-color: #eeeeee;
+  .item {
+    height: 35px;
+  }
+}
+
 </style>
