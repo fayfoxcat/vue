@@ -5,7 +5,7 @@
       <div class="item">
         <input type="checkbox" v-model="item.complete" />
         <span>{{ item.title }}</span>
-        <button class="del_task">移除</button>
+        <el-button class="del_task">移除</el-button>
       </div>
     </div>
   </div>
