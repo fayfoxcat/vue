@@ -2,15 +2,26 @@
     <div class="main">
         <div class="footer">
           <span class="footer_left">已选/总计：</span>
-          <span class="footer_right">6 / 20</span>
+          <span class="footer_right">{{seleter}} / {{count}}</span>
         </div>
     </div>
 </template>
 
 <script>
+import { reactive, toRefs } from '@vue/reactivity'
 export default {
-  setup(){
+  props(){
 
+  },
+  setup(){
+    let data = reactive({
+      seleter:5,
+      count: 20,
+    })
+
+    return {
+      ...toRefs(data)
+    }
   }
 }
 </script>
