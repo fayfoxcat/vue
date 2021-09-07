@@ -86,8 +86,6 @@ export default {
       line-height: 30px;
     }
     .item_btn{
-      display: inline-block;
-      float: right;
     }
   }
 }
