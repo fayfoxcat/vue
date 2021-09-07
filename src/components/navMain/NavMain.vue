@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// .item {
-//   height: 35px;
-// }
+ .item {
+   height: 35px;
+ }
 </style>
