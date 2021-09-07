@@ -1,15 +1,40 @@
 <template>
-    <div>
-        .
+    <div class="main">
+        <div class="footer">
+          <span class="footer_left">已选/总计：</span>
+          <span class="footer_right">6 / 20</span>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
+  setup(){
 
+  }
 }
 </script>
 
 <style scoped lang="scss">
+  .main{
+    margin: 0 auto;
+    width: 22%;
+    padding: 20px 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #eeeeee;
+    .footer{
+      display: flex;
+      justify-content: space-between;
+      .footer_left{
+        height: 30px;
+        line-height: 30px;
+      }
+      .footer_right{
+        height: 30px;
+        line-height: 30px;
+      }
+    }
 
+  }
 </style>

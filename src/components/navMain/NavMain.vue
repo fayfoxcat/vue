@@ -2,21 +2,24 @@
   <div id="main">
     <el-input placeholder="添加代办事项" size="medium" v-model="value" @keydown.enter="add_task">
     </el-input>
-    <div v-for="(item, index) in tasks" :key="index">
-      <div class="item">
-        <el-checkbox v-model="item.complete" :label="item.title"></el-checkbox>
-        <el-button size="mini" class="del_btn" @click="del_task(index)">移除</el-button>
+    <el-scrollbar max-height="400px">
+      <div v-for="(item, index) in tasks" :key="index">
+        <div class="item">
+          <el-checkbox class="item_checkbox" v-model="item.complete" :label="item.title"></el-checkbox>
+          <el-button class="item_btn" size="mini" @click="del_task(index)">移除</el-button>
+        </div>
       </div>
-    </div>
+    </el-scrollbar>
   </div>
 </template>
 
 <script>
 import {reactive, toRefs} from "@vue/reactivity";
 import {ElMessage} from "element-plus";
+import {onMounted} from "vue";
 
 export default {
-  setup() {
+  setup(props, context) {
     let data = reactive({
       value: "",
       tasks: [
@@ -30,6 +33,7 @@ export default {
         },
       ],
     });
+
     let add_task = () => {
       if (data.value === '') {
         return ElMessage.warning({
@@ -45,9 +49,17 @@ export default {
       })
       data.value = ''
     };
+
     let del_task = (index) => {
       data.tasks.splice(index, 1);
     };
+
+    onMounted(() => {
+      console.log(context.attrs);
+      console.log(context.slots);
+      console.log(context.emit);
+    })
+
     return {
       ...toRefs(data),
       add_task,
@@ -60,17 +72,22 @@ export default {
 <style scoped lang="scss">
 #main {
   margin: 50px auto 0 auto;
-  border-radius: 5px;
-  padding: 20px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 20px 10px;
   width: 22%;
   background-color: #eeeeee;
-
   .item {
-    height: 35px;
-    line-height: 35px;
-
-    .del_btn {
-      margin: auto 15px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    .item_checkbox{
+      height: 30px;
+      line-height: 30px;
+    }
+    .item_btn{
+      display: inline-block;
+      float: right;
     }
   }
 }

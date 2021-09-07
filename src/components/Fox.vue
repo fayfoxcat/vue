@@ -10,7 +10,7 @@
 <script>
 import { createApp, defineComponent } from "vue";
 createApp(Counter).mount("#fox");
-export default defineComponen({
+export default defineComponent({
   // 组件名称
   name: "Fox",
   // 来自父组件的传值
@@ -21,7 +21,7 @@ export default defineComponen({
   components: {
 
   },
-  setup(props, ctx) {
+  setup() {
     
   },
 });
