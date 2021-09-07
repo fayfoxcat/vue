@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import {createApp, reactive, ref, toRefs} from "vue";
+import {reactive, ref, toRefs} from "vue";
 
 export default {
   setup() {
@@ -45,13 +45,6 @@ export default {
     }
   },
 }
-const app = createApp({
-  data() {
-    return {count: 4}
-  }
-})
-const vm = app.mount("#header")
-console.log(vm);
 </script>
 
 <style scoped lang="scss">

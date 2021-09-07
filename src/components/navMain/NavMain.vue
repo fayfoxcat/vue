@@ -1,11 +1,11 @@
 <template>
   <div id="main">
-    <el-input placeholder="添加代办事项" size="medium" v-model="value" @keydown="add_task">
+    <el-input placeholder="添加代办事项" size="medium" v-model="value" @keydown.enter="add_task">
     </el-input>
     <div v-for="(item, index) in tasks" :key="index">
       <div class="item">
         <el-checkbox v-model="item.complete" :label="item.title"></el-checkbox>
-        <el-button size="mini" class="del_task">移除</el-button>
+        <el-button size="mini" class="del_btn" @click="del_task(index)">移除</el-button>
       </div>
     </div>
   </div>
@@ -13,6 +13,7 @@
 
 <script>
 import {reactive, toRefs} from "@vue/reactivity";
+import {ElMessage} from "element-plus";
 
 export default {
   setup() {
@@ -20,22 +21,32 @@ export default {
       value: "",
       tasks: [
         {
-          id: 1,
           title: "默认事项",
           complete: true,
         },
         {
-          id: 2,
           title: "代办事项",
           complete: false,
         },
       ],
     });
     let add_task = () => {
-      console.log("添加了一个任务事项");
+      if (data.value === '') {
+        return ElMessage.warning({
+          message: '事项名称不能为空！',
+          type: 'warning',
+          center: true,
+          showClose: true
+        })
+      }
+      data.tasks.push({
+        title: data.value,
+        complete: false
+      })
+      data.value = ''
     };
-    let del_task = () => {
-      console.log("移除了一个任务事项");
+    let del_task = (index) => {
+      data.tasks.splice(index, 1);
     };
     return {
       ...toRefs(data),
@@ -49,15 +60,16 @@ export default {
 <style scoped lang="scss">
 #main {
   margin: 50px auto 0 auto;
-  padding: 10px;
-  width: 20%;
+  border-radius: 5px;
+  padding: 20px;
+  width: 22%;
   background-color: #eeeeee;
 
   .item {
     height: 35px;
     line-height: 35px;
 
-    .del_task {
+    .del_btn {
       margin: auto 15px;
     }
   }
