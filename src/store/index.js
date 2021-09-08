@@ -3,16 +3,11 @@ import { createStore } from 'vuex'
 export default createStore({
   // 定义所需的状态的
   state: {
-    tasks: [
-      {
-        title: "默认事项",
-        complete: true,
-      },
-      {
-        title: "代办事项",
-        complete: false,
-      },
-    ]
+    taskMap:{
+      select_count: [1,2],
+      selected: 2,
+      count: 4
+    }
   },
   // 同步修改statte 都是方法,参数：第一个state，第二个需要修改的值
   mutations: {

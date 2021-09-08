@@ -5,7 +5,7 @@
     <div>{{ obj }}</div>
     <button @click.once="print(10)">打印obj</button>
     <div>
-      <a :[vName]="doSomeing">hello</a>
+      <a :[vName]="doSoming">hello</a>
       <button @[eventName]="updateHref">修改节点功能</button>
     </div>
   </div>
@@ -26,7 +26,7 @@ export default {
       },
       vName: '',
       eventName: 'click',
-      doSomeing: 'https://www.baidu.com'
+      doSoming: 'https://www.baidu.com'
     })
     let print = (val) => {
       console.log(data.obj.id + val)

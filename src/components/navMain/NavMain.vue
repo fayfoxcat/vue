@@ -1,23 +1,11 @@
 <template>
   <div id="main">
-    <el-input
-      placeholder="添加代办事项"
-      size="medium"
-      v-model="value"
-      @keydown.enter="add_task"
-    >
-    </el-input>
+    <el-input placeholder="添加代办事项" size="medium" v-model="value" @keydown.enter="add_task"></el-input>
     <el-scrollbar max-height="400px">
       <div v-for="(item, index) in tasks" :key="index">
         <div class="item">
-          <el-checkbox
-            class="item_checkbox"
-            v-model="item.complete"
-            :label="item.title"
-          ></el-checkbox>
-          <el-button class="item_btn" size="mini" @click="del_task(index)"
-            >移除</el-button
-          >
+          <el-checkbox class="item_checkbox" v-model="item.complete" :label="item.title"></el-checkbox>
+          <el-button class="item_btn" size="mini" @click="del_task(index)">移除</el-button>
         </div>
       </div>
     </el-scrollbar>
@@ -25,9 +13,9 @@
 </template>
 
 <script>
-import { reactive, toRefs } from "@vue/reactivity";
-import { ElMessage } from "element-plus";
-import { onMounted } from "vue";
+import {reactive, toRefs} from "@vue/reactivity";
+import {ElMessage} from "element-plus";
+import {computed, onMounted, ref} from "vue";
 
 export default {
   setup(props, context) {
@@ -44,6 +32,20 @@ export default {
         },
       ],
     });
+
+    let taskMap = ref(computed(() => {
+      let tasks = data.tasks;
+      let select_count = tasks.map(function (element, index) {
+        if (element.complete === true) {
+          return index;
+        }
+      });
+      return {
+        select_count: select_count,
+        selected: select_count.length,
+        count: tasks.length
+      };
+    }))
 
     let add_task = () => {
       if (data.value === "") {
@@ -79,6 +81,7 @@ export default {
 
     return {
       ...toRefs(data),
+      taskMap,
       add_task,
       del_task,
     };
@@ -94,19 +97,24 @@ export default {
   padding: 20px 10px;
   width: 22%;
   background-color: #eeeeee;
+
   .item {
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
+
     .item_checkbox {
       height: 30px;
       line-height: 30px;
     }
+
     .item_btn {
       display: none;
     }
+
     &:hover {
       background: #afd5fc;
+
       button {
         display: block;
       }
