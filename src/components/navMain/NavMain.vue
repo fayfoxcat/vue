@@ -15,10 +15,12 @@
 <script>
 import {reactive, toRefs} from "@vue/reactivity";
 import {ElMessage} from "element-plus";
-import {computed, onMounted, ref} from "vue";
+import {computed, onMounted } from "vue";
+import {useStore} from "vuex";
 
 export default {
   setup(props, context) {
+    const store = useStore();
     let data = reactive({
       value: "",
       tasks: [
@@ -33,11 +35,12 @@ export default {
       ],
     });
 
-    let taskMap = ref(computed(() => {
+    let taskMap = computed(() => {
       let tasks = data.tasks;
-      let select_count = tasks.map(function (element, index) {
+      let select_count = [];
+      tasks.forEach(function (element, index) {
         if (element.complete === true) {
-          return index;
+          select_count.push(index);
         }
       });
       return {
@@ -45,7 +48,7 @@ export default {
         selected: select_count.length,
         count: tasks.length
       };
-    }))
+    });
 
     let add_task = () => {
       if (data.value === "") {
@@ -61,10 +64,12 @@ export default {
         complete: false,
       });
       data.value = "";
+      store.commit('setTaskMap',taskMap.value)
     };
 
     let del_task = (index) => {
       data.tasks.splice(index, 1);
+      store.commit('setTaskMap',taskMap.value)
       return ElMessage.success({
         message: "移除任务成功",
         type: "success",
@@ -74,14 +79,14 @@ export default {
     };
 
     onMounted(() => {
-      console.log(context.attrs);
-      console.log(context.slots);
-      console.log(context.emit);
+      // console.log(context.attrs);
+      // console.log(context.slots);
+      // console.log(context.emit);
+      context.emit
     });
 
     return {
       ...toRefs(data),
-      taskMap,
       add_task,
       del_task,
     };
@@ -102,6 +107,7 @@ export default {
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
+    padding-left: 20px;
 
     .item_checkbox {
       height: 30px;

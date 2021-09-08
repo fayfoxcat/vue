@@ -2,7 +2,7 @@
   <div class="main">
     <div class="footer">
       <span class="footer_left">已选/总计：</span>
-      <span class="footer_right">{{ selected }} / {{ count }}</span>
+      <span class="footer_right">{{ taskMap.selected }} / {{ taskMap.count }}</span>
       <el-button size="mini" class="footer_btn" @click="clear_selected">清除已选</el-button>
     </div>
   </div>
@@ -10,19 +10,17 @@
 
 <script>
 import {reactive, toRefs} from '@vue/reactivity'
+import {useStore} from "vuex";
 
 export default {
-  props() {
-
-  },
   setup() {
+    const store = useStore();
     let data = reactive({
-      selected: 1,
-      count: 2,
+      taskMap: store.state.taskMap
     })
 
     let clear_selected = () => {
-      console.log('clear')
+      console.log(store.state.taskMap)
     }
 
     return {
