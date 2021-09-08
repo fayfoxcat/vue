@@ -11,10 +11,12 @@
 import {reactive, toRefs} from '@vue/reactivity'
 import {useStore} from "vuex";
 import {computed} from "vue";
+import mitt from "mitt";
 
 export default {
   setup() {
     const store = useStore();
+    const emitter = mitt()
     let data = reactive({
       taskMap: {}
     })
@@ -31,6 +33,7 @@ export default {
 
     /* 清除所选任务 */
     let clear_selected = () => {
+      emitter.emit('batchDelete',1)
     }
 
     return {

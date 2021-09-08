@@ -1,9 +1,9 @@
 <template>
   <div id="main">
     <el-input placeholder="添加代办事项" size="medium" v-model="value" @keydown.enter="add_task"></el-input>
-    <el-scrollbar max-height="400px">
+    <el-scrollbar max-height="300px">
       <div v-for="(item, index) in tasks" :key="index">
-        <div class="item">
+        <div :class="['item',item.complete?'completed':'']">
           <el-checkbox class="item_checkbox" v-model="item.complete" :label="item.title"></el-checkbox>
           <el-button class="item_btn" size="mini" @click="del_task(index)">移除</el-button>
         </div>
@@ -17,10 +17,12 @@ import {reactive, toRefs} from "@vue/reactivity";
 import {ElMessage} from "element-plus";
 import {onMounted} from "vue";
 import {useStore} from "vuex";
+import mitt from "mitt";
 
 export default {
   setup(props, context) {
     const store = useStore();
+    const emitter = mitt()
     let data = reactive({
       value: "",
       tasks: [
@@ -70,6 +72,8 @@ export default {
       });
     };
 
+    emitter.on('batchDelete', del_task)
+
     onMounted(() => {
       // console.log(context.attrs);
       // console.log(context.slots);
@@ -102,6 +106,10 @@ export default {
     justify-content: space-between;
     margin: 10px 0;
     padding-left: 20px;
+
+    &.completed label{
+      text-decoration: line-through;
+    }
 
     .item_checkbox {
       height: 30px;
