@@ -1,9 +1,8 @@
 <template>
   <div class="main">
     <div class="footer">
-      <span class="footer_left">已选/总计：</span>
-      <span class="footer_right">{{ taskMap.selected }} / {{ taskMap.count }}</span>
-      <el-button size="mini" class="footer_btn" @click="clear_selected">清除已选</el-button>
+      <span class="footer_left">已选/总计：{{ taskMap.selected }} / {{ taskMap.count }}</span>
+      <el-button size="mini" class="footer_right" @click="clear_selected">清除已选</el-button>
     </div>
   </div>
 </template>
@@ -11,16 +10,27 @@
 <script>
 import {reactive, toRefs} from '@vue/reactivity'
 import {useStore} from "vuex";
+import {computed} from "vue";
 
 export default {
   setup() {
     const store = useStore();
     let data = reactive({
-      taskMap: store.state.taskMap
+      taskMap: {}
     })
 
+    data.taskMap = computed(() => {
+      let tasks = store.state.tasks;
+      let select_count = tasks.filter(x => x.complete).map((value, index) => index);
+      return {
+        select_count: select_count,
+        selected: select_count.length,
+        count: tasks.length
+      };
+    });
+
+    /* 清除所选任务 */
     let clear_selected = () => {
-      console.log(store.state.taskMap)
     }
 
     return {
@@ -41,17 +51,13 @@ export default {
   background-color: #eeeeee;
 
   .footer {
-    display: flex;
-    justify-content: space-between;
-
     .footer_left {
       height: 30px;
       line-height: 30px;
     }
 
     .footer_right {
-      height: 30px;
-      line-height: 30px;
+      float: right;
     }
   }
 

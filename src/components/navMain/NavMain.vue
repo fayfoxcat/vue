@@ -15,7 +15,7 @@
 <script>
 import {reactive, toRefs} from "@vue/reactivity";
 import {ElMessage} from "element-plus";
-import {computed, onMounted } from "vue";
+import {onMounted} from "vue";
 import {useStore} from "vuex";
 
 export default {
@@ -35,21 +35,12 @@ export default {
       ],
     });
 
-    let taskMap = computed(() => {
-      let tasks = data.tasks;
-      let select_count = [];
-      tasks.forEach(function (element, index) {
-        if (element.complete === true) {
-          select_count.push(index);
-        }
-      });
-      return {
-        select_count: select_count,
-        selected: select_count.length,
-        count: tasks.length
-      };
-    });
+    /* 同步任务列表 */
+    let syc_tasks = () => {
+      store.commit('setTaskMap', data.tasks)
+    }
 
+    /* 添加任务 */
     let add_task = () => {
       if (data.value === "") {
         return ElMessage.warning({
@@ -64,12 +55,13 @@ export default {
         complete: false,
       });
       data.value = "";
-      store.commit('setTaskMap',taskMap.value)
+      syc_tasks()
     };
 
+    /* 删除任务 */
     let del_task = (index) => {
       data.tasks.splice(index, 1);
-      store.commit('setTaskMap',taskMap.value)
+      syc_tasks()
       return ElMessage.success({
         message: "移除任务成功",
         type: "success",
@@ -89,6 +81,7 @@ export default {
       ...toRefs(data),
       add_task,
       del_task,
+      syc_tasks,
     };
   },
 };
