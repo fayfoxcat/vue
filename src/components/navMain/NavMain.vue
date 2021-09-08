@@ -75,6 +75,7 @@ export default {
       // console.log(context.slots);
       // console.log(context.emit);
       context.emit
+      syc_tasks()
     });
 
     return {

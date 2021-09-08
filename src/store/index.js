@@ -3,7 +3,7 @@ import {createStore} from 'vuex'
 export default createStore({
     // 定义所需的状态的
     state: {
-        tasks: []
+        tasks: [],
     },
     // 同步修改state 都是方法,参数：第一个state，第二个需要修改的值
     mutations: {
