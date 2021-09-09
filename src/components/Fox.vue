@@ -8,8 +8,7 @@
 </template>
 
 <script>
-import { createApp, defineComponent } from "vue";
-createApp(Counter).mount("#fox");
+import { defineComponent, reactive, toRefs } from "vue";
 export default defineComponent({
   // 组件名称
   name: "Fox",
@@ -22,24 +21,20 @@ export default defineComponent({
 
   },
   setup() {
-    
+    let data = reactive({
+      id:'12',
+      name:'徐凤年',
+    })
+
+    let add = ()=>{
+      console.log('add!')
+    }
+    return {
+      add,
+      ...toRefs(data)
+    }
   },
 });
-
-const Counter = {
-  data() {
-    return {
-      id: 10,
-      name: "徐凤年",
-    };
-  },
-  methods: {
-    add() {
-      this.id++;
-      console.log(this.id);
-    },
-  },
-};
 </script>
 
 <!-- 添加"scoped"属性只限制CSS到该组件 -->
