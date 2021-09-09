@@ -14,6 +14,7 @@
 
 <script>
 import {reactive, ref, toRefs} from "vue";
+import {useRouter} from "vue-router";
 
 export default {
   setup() {
@@ -41,7 +42,7 @@ export default {
 
     /* 路由跳转 */
     let goto = ()=>{
-      
+      router.push('/fox')
     }
 
     return {

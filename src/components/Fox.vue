@@ -3,12 +3,14 @@
     <div>问题在哪儿？</div>
     <div>id: {{ id }}</div>
     <div>name: {{ name }}</div>
-    <button @click="add()">Add</button>
+    <button @click="back">返回</button>
   </div>
 </template>
 
 <script>
 import { defineComponent, reactive, toRefs } from "vue";
+import {useRouter} from "vue-router";
+
 export default defineComponent({
   // 组件名称
   name: "Fox",
@@ -21,16 +23,17 @@ export default defineComponent({
 
   },
   setup() {
+    let router = useRouter()
     let data = reactive({
       id:'12',
       name:'徐凤年',
     })
 
-    let add = ()=>{
-      console.log('add!')
+    let back = ()=>{
+      router.back()
     }
     return {
-      add,
+      back,
       ...toRefs(data)
     }
   },
