@@ -18,7 +18,9 @@ import {useRouter} from "vue-router";
 
 export default {
   setup() {
+    /* router是全局的路由对象 */
     let router = useRouter()
+
     let num = ref(10)
     let name = ref('jack')
     let data = reactive({
@@ -42,7 +44,14 @@ export default {
 
     /* 路由跳转 */
     let goto = ()=>{
-      router.push('/fox')
+      router.push({
+        path:'/fox',
+        query:{
+          num:num.value,
+          name:name.value,
+          data: JSON.stringify(data)
+        }
+      })
     }
 
     return {

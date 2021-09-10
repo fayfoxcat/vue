@@ -9,7 +9,7 @@
 
 <script>
 import { defineComponent, reactive, toRefs } from "vue";
-import {useRouter} from "vue-router";
+import {useRouter,useRoute} from "vue-router";
 
 export default defineComponent({
   // 组件名称
@@ -23,7 +23,12 @@ export default defineComponent({
 
   },
   setup() {
+    /* router是全局的路由对象 */
     let router = useRouter()
+    /* 当前组件的路由对象 */
+    let route = useRoute()
+    /* query传递过来的参数全部转换为字符串类型 */
+    console.log(route.query.name)
     let data = reactive({
       id:'12',
       name:'徐凤年',
