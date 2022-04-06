@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="home" class="home">
     <nav-header></nav-header>
     <nav-main></nav-main>
     <nav-footer></nav-footer>
@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { defineComponent} from "vue";
+import {defineComponent} from "vue";
 import NavHeader from "@/components/navHeader/NavHeader";
 import NavMain from "@/components/navMain/NavMain";
 import NavFooter from "@/components/navFooter/NavFooter";

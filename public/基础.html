@@ -24,7 +24,7 @@
             <input v-model="input" />
         </div>
         <div>
-            <p v-if="seen">显示/隐藏</p>
+            <p>状态{{msg}}:<span v-if="seen">🌹</span></p>
             <button @click='Switching'>切换状态</button>
         </div>
         <div>
@@ -38,7 +38,12 @@
         <span>文本：</span><span>{{shtml}}</span>
         <br>
         <span>渲染：</span><span v-html="shtml"></span>
-
+        <p>-----------------------------------------------------------------------------------------------------------------</p>
+        <div>
+              <ol>
+                 <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item> 
+              </ol>  
+        </div>
     </div>
 </body>
 <script>
@@ -50,12 +55,13 @@
                 message: '言念君子，温其如玉',
                 input: '默认文字',
                 seen: true,
+                msg: "显示",
                 todos: [
                     { text: 'Learn JavaScript' },
                     { text: 'Learn Vue' },
                     { text: 'Build something awesome' }
                 ],
-                shtml:'<span style="color: #059e83">This should be red.</span>',
+                shtml: '<span style="color: #059e83">This should be red.</span>',
             }
         },
         mounted() {
@@ -69,13 +75,14 @@
             },
             Switching() {
                 this.seen = !this.seen
+                msg = this.seen ? '显示' : '隐藏'
             },
             print() {
                 console.log(this.counter)
             }
         }
     }
-    const vm= Vue.createApp(Counter).mount('#counter')
+    const vm = Vue.createApp(Counter).mount('#counter')
     console.log(vm.message);
     vm.print()
 </script>
