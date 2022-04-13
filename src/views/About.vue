@@ -8,7 +8,7 @@
     <button @click='change'>移除，观察计算属性</button>
     <div>插值计算：{{ author.books.length > 0 ? 'Yes' : 'No' }}</div>
     <div>计算属性：{{ result }}</div>
-    <div>now：{{ now }}</div>
+    <div>now: {{ now }}</div>
     <button @click="updateTime">更新时间</button>
   </div>
 </template>
@@ -34,6 +34,7 @@ export default {
         ]
       },
       result: computed(() => data.author.books.length > 0 ? 'Yes' : 'No'),
+      // result: watch(() => data.author.books.length > 0 ? 'Yes' : 'No'),
       now: computed(() => Date.now())
     })
     let show = () => {
